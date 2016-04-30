@@ -39,6 +39,7 @@ namespace table
             OleDbDataReader reader = command.ExecuteReader();
             string[] users = new string[n + 1];
             string[] passes = new string[n + 1];
+
             while (reader.Read())
             {
                 users[i] = reader["username"].ToString();
