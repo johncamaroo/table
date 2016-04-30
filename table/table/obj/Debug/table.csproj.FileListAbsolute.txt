@@ -1,0 +1,11 @@
+c:\users\loli\documents\visual studio 2015\Projects\table\table\bin\Debug\table.exe.config
+c:\users\loli\documents\visual studio 2015\Projects\table\table\bin\Debug\tabledb.mdb
+c:\users\loli\documents\visual studio 2015\Projects\table\table\bin\Debug\table.exe
+c:\users\loli\documents\visual studio 2015\Projects\table\table\bin\Debug\table.pdb
+c:\users\loli\documents\visual studio 2015\Projects\table\table\obj\Debug\table.csprojResolveAssemblyReference.cache
+c:\users\loli\documents\visual studio 2015\Projects\table\table\obj\Debug\table.Form1.resources
+c:\users\loli\documents\visual studio 2015\Projects\table\table\obj\Debug\table.Properties.Resources.resources
+c:\users\loli\documents\visual studio 2015\Projects\table\table\obj\Debug\table.csproj.GenerateResource.Cache
+c:\users\loli\documents\visual studio 2015\Projects\table\table\obj\Debug\table.exe
+c:\users\loli\documents\visual studio 2015\Projects\table\table\obj\Debug\table.pdb
+c:\users\loli\documents\visual studio 2015\Projects\table\table\obj\Debug\table.Form2.resources
