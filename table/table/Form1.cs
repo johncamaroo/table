@@ -85,7 +85,12 @@ namespace table
             if(button2.Text == "Деавторизация")
             {
                 res = MessageBox.Show("Вы действительно хотите деавторизоваться?", "Деавторизация", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (res == DialogResult.Yes) Close();
+                if (res == DialogResult.Yes)
+                {
+                    button2.Text = "Авторизация";
+                    groupBox1.Visible = false;
+                    groupBox2.Visible = false;
+                }
                 else return;
             }
             groupBox1.Visible = true;
