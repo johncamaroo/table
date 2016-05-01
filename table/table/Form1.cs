@@ -23,7 +23,7 @@ namespace table
         {
             
         }
-
+        
         private void button1_Click(object sender, EventArgs e)
         {
             int n, i = 0;
@@ -95,6 +95,12 @@ namespace table
         private void button3_Click(object sender, EventArgs e)
         {
             res = MessageBox.Show("Изменения сохранены","",MessageBoxButtons.OK);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Form2 form = new Form2();
+            form.Show();
         }
     }
 }
