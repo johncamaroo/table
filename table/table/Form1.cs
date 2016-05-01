@@ -79,11 +79,11 @@ namespace table
                         if (pass == pps[i])
                         {
                             groupBox1.Visible = false;
+                            groupBox2.Visible = false;
                             dataGridView1.Visible = true;
                             textBox1.Text = "";
                             textBox2.Text = "";
                             button2.Text = "Деавторизация";
-                            groupBox2.Visible = true;
                             break;
                         }
                     }
@@ -127,7 +127,8 @@ namespace table
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if(button2.Text == "Деавторизация")
+            label3.Text = "";
+            if (button2.Text == "Деавторизация")
             {
                 res = MessageBox.Show("Вы действительно хотите деавторизоваться?", "Деавторизация", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (res == DialogResult.Yes)
