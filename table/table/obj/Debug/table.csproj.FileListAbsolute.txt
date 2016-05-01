@@ -9,3 +9,13 @@ c:\users\loli\documents\visual studio 2015\Projects\table\table\obj\Debug\table.
 c:\users\loli\documents\visual studio 2015\Projects\table\table\obj\Debug\table.exe
 c:\users\loli\documents\visual studio 2015\Projects\table\table\obj\Debug\table.pdb
 c:\users\loli\documents\visual studio 2015\Projects\table\table\obj\Debug\table.Form2.resources
+C:\Users\loli\Documents\table\table\table\bin\Debug\table.exe.config
+C:\Users\loli\Documents\table\table\table\obj\Debug\table.exe
+C:\Users\loli\Documents\table\table\table\obj\Debug\table.pdb
+C:\Users\loli\Documents\table\table\table\bin\Debug\tabledb.mdb
+C:\Users\loli\Documents\table\table\table\bin\Debug\table.exe
+C:\Users\loli\Documents\table\table\table\bin\Debug\table.pdb
+C:\Users\loli\Documents\table\table\table\obj\Debug\table.Form1.resources
+C:\Users\loli\Documents\table\table\table\obj\Debug\table.Form2.resources
+C:\Users\loli\Documents\table\table\table\obj\Debug\table.Properties.Resources.resources
+C:\Users\loli\Documents\table\table\table\obj\Debug\table.csproj.GenerateResource.Cache

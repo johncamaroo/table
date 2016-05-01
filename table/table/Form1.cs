@@ -13,8 +13,7 @@ namespace table
 {
     public partial class Form1 : Form
     {
-        Form2 form = new Form2();
-
+        DialogResult res = new DialogResult();
         public Form1()
         {
             InitializeComponent();
@@ -85,15 +84,17 @@ namespace table
         {
             if(button2.Text == "Деавторизация")
             {
-                //form.Text = "Хуй";
-                //form.Show();
-               
-                button2.Text = "Авторизация";
-                dataGridView1.Visible = false;
-                groupBox2.Visible = false;
+                res = MessageBox.Show("Вы действительно хотите деавторизоваться?", "Деавторизация", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (res == DialogResult.Yes) Close();
+                else return;
             }
             groupBox1.Visible = true;
             
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            res = MessageBox.Show("Изменения сохранены","",MessageBoxButtons.OK);
         }
     }
 }
