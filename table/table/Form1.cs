@@ -21,51 +21,96 @@ namespace table
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
         }
         
         private void button1_Click(object sender, EventArgs e)
         {
-            int n, i = 0;
+            int pupilcount, teachercount, i = 0, j = 0;
             OleDbCommand command = oleDbConnection1.CreateCommand();
             command.CommandType = CommandType.Text;
-            command.CommandText = "SELECT COUNT(*) FROM auth";
+
+            command.CommandText = "SELECT COUNT(*) FROM pupils";
             oleDbConnection1.Open();
-            n = (int)command.ExecuteScalar();
+            pupilcount = (int)command.ExecuteScalar();
             oleDbConnection1.Close();
-            command.CommandText = "SELECT * FROM auth";
+
+            command.CommandText = "SELECT COUNT(*) FROM teachers";
+            oleDbConnection1.Open();
+            teachercount = (int)command.ExecuteScalar();
+            oleDbConnection1.Close();
+
+            command.CommandText = "SELECT * FROM pupils";
             oleDbConnection1.Open();
             OleDbDataReader reader = command.ExecuteReader();
-            string[] users = new string[n + 1];
-            string[] passes = new string[n + 1];
-
+            string[] pun = new string[pupilcount + 1];
+            string[] pps = new string[pupilcount + 1];
             while (reader.Read())
             {
-                users[i] = reader["username"].ToString();
-                passes[i] = reader["password"].ToString();
+                pun[i] = reader["username"].ToString();
+                pps[i] = reader["password"].ToString();
+                ++i;
+            }             
+            oleDbConnection1.Close();
+            i = 0;
+            command.CommandText = "SELECT * FROM teachers";
+            oleDbConnection1.Open();
+            OleDbDataReader reader2 = command.ExecuteReader();
+            string[] tun = new string[teachercount + 3];
+            string[] tps = new string[teachercount + 3];
+            while (reader2.Read())
+            {
+                tun[i] = reader2["username"].ToString();
+                tps[i] = reader2["password"].ToString();
                 ++i;
             }
-             
             oleDbConnection1.Close();
+
             string user = textBox1.Text;
             string pass = textBox2.Text;
-            for (i = 0; i < n; i++)
+
+            i = 0;
+            while (true)
             {
-                if (user == users[i])
+                while (i < pupilcount)
                 {
-                    if (pass == passes[i])
+                    if (user == pun[i])
                     {
-                        groupBox1.Visible = false;
-                        dataGridView1.Visible = true;
-                        textBox1.Text = "";
-                        textBox2.Text = "";
-                        button2.Text = "Деавторизация";
-                        groupBox2.Visible = true;
-                        break;
+                        if (pass == pps[i])
+                        {
+                            groupBox1.Visible = false;
+                            dataGridView1.Visible = true;
+                            textBox1.Text = "";
+                            textBox2.Text = "";
+                            button2.Text = "Деавторизация";
+                            groupBox2.Visible = true;
+                            break;
+                        }
                     }
+                    i++;
                 }
-                //label3.ForeColor = System.Drawing.Color.Red;
+
+                while (j < teachercount)
+                {
+
+                    if (user == tun[j])
+                    {
+                        if (pass == tps[j])
+                        {
+                            groupBox1.Visible = false;
+                            dataGridView1.Visible = true;
+                            textBox1.Text = "";
+                            textBox2.Text = "";
+                            button2.Text = "Деавторизация";
+                            groupBox2.Visible = true;
+                            break;
+                        }
+                    }
+                    j++;
+                }
+               
                 label3.Text = "Incorrect username or password";
+                break;
             }
             
                
@@ -88,6 +133,7 @@ namespace table
                 if (res == DialogResult.Yes)
                 {
                     button2.Text = "Авторизация";
+                    dataGridView1.Visible = false;
                     groupBox1.Visible = false;
                     groupBox2.Visible = false;
                 }

@@ -28,16 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.oleDbSelectCommand1 = new System.Data.OleDb.OleDbCommand();
-            this.oleDbConnection1 = new System.Data.OleDb.OleDbConnection();
-            this.oleDbInsertCommand1 = new System.Data.OleDb.OleDbCommand();
-            this.oleDbUpdateCommand1 = new System.Data.OleDb.OleDbCommand();
-            this.oleDbDeleteCommand1 = new System.Data.OleDb.OleDbCommand();
-            this.oleDbDataAdapter1 = new System.Data.OleDb.OleDbDataAdapter();
-            this.authBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tabledbDataSet = new table.tabledbDataSet();
-            this.authTableAdapter = new table.tabledbDataSetTableAdapters.authTableAdapter();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -51,82 +41,14 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.authBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tabledbDataSet)).BeginInit();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.oleDbSelectCommand1 = new System.Data.OleDb.OleDbCommand();
+            this.oleDbDataAdapter1 = new System.Data.OleDb.OleDbDataAdapter();
+            this.oleDbConnection1 = new System.Data.OleDb.OleDbConnection();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // oleDbSelectCommand1
-            // 
-            this.oleDbSelectCommand1.CommandText = "SELECT        auth.*\r\nFROM            auth";
-            this.oleDbSelectCommand1.Connection = this.oleDbConnection1;
-            // 
-            // oleDbConnection1
-            // 
-            this.oleDbConnection1.ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\\tabledb.mdb";
-            // 
-            // oleDbInsertCommand1
-            // 
-            this.oleDbInsertCommand1.CommandText = "INSERT INTO `auth` (`username`, `password`) VALUES (?, ?)";
-            this.oleDbInsertCommand1.Connection = this.oleDbConnection1;
-            this.oleDbInsertCommand1.Parameters.AddRange(new System.Data.OleDb.OleDbParameter[] {
-            new System.Data.OleDb.OleDbParameter("username", System.Data.OleDb.OleDbType.VarWChar, 0, "username"),
-            new System.Data.OleDb.OleDbParameter("password", System.Data.OleDb.OleDbType.VarWChar, 0, "password")});
-            // 
-            // oleDbUpdateCommand1
-            // 
-            this.oleDbUpdateCommand1.CommandText = "UPDATE `auth` SET `username` = ?, `password` = ? WHERE ((`ID` = ?) AND ((? = 1 AN" +
-    "D `username` IS NULL) OR (`username` = ?)) AND ((? = 1 AND `password` IS NULL) O" +
-    "R (`password` = ?)))";
-            this.oleDbUpdateCommand1.Connection = this.oleDbConnection1;
-            this.oleDbUpdateCommand1.Parameters.AddRange(new System.Data.OleDb.OleDbParameter[] {
-            new System.Data.OleDb.OleDbParameter("username", System.Data.OleDb.OleDbType.VarWChar, 0, "username"),
-            new System.Data.OleDb.OleDbParameter("password", System.Data.OleDb.OleDbType.VarWChar, 0, "password"),
-            new System.Data.OleDb.OleDbParameter("Original_ID", System.Data.OleDb.OleDbType.Integer, 0, System.Data.ParameterDirection.Input, false, ((byte)(0)), ((byte)(0)), "ID", System.Data.DataRowVersion.Original, null),
-            new System.Data.OleDb.OleDbParameter("IsNull_username", System.Data.OleDb.OleDbType.Integer, 0, System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "username", System.Data.DataRowVersion.Original, true, null),
-            new System.Data.OleDb.OleDbParameter("Original_username", System.Data.OleDb.OleDbType.VarWChar, 0, System.Data.ParameterDirection.Input, false, ((byte)(0)), ((byte)(0)), "username", System.Data.DataRowVersion.Original, null),
-            new System.Data.OleDb.OleDbParameter("IsNull_password", System.Data.OleDb.OleDbType.Integer, 0, System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "password", System.Data.DataRowVersion.Original, true, null),
-            new System.Data.OleDb.OleDbParameter("Original_password", System.Data.OleDb.OleDbType.VarWChar, 0, System.Data.ParameterDirection.Input, false, ((byte)(0)), ((byte)(0)), "password", System.Data.DataRowVersion.Original, null)});
-            // 
-            // oleDbDeleteCommand1
-            // 
-            this.oleDbDeleteCommand1.CommandText = "DELETE FROM `auth` WHERE ((`ID` = ?) AND ((? = 1 AND `username` IS NULL) OR (`use" +
-    "rname` = ?)) AND ((? = 1 AND `password` IS NULL) OR (`password` = ?)))";
-            this.oleDbDeleteCommand1.Connection = this.oleDbConnection1;
-            this.oleDbDeleteCommand1.Parameters.AddRange(new System.Data.OleDb.OleDbParameter[] {
-            new System.Data.OleDb.OleDbParameter("Original_ID", System.Data.OleDb.OleDbType.Integer, 0, System.Data.ParameterDirection.Input, false, ((byte)(0)), ((byte)(0)), "ID", System.Data.DataRowVersion.Original, null),
-            new System.Data.OleDb.OleDbParameter("IsNull_username", System.Data.OleDb.OleDbType.Integer, 0, System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "username", System.Data.DataRowVersion.Original, true, null),
-            new System.Data.OleDb.OleDbParameter("Original_username", System.Data.OleDb.OleDbType.VarWChar, 0, System.Data.ParameterDirection.Input, false, ((byte)(0)), ((byte)(0)), "username", System.Data.DataRowVersion.Original, null),
-            new System.Data.OleDb.OleDbParameter("IsNull_password", System.Data.OleDb.OleDbType.Integer, 0, System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "password", System.Data.DataRowVersion.Original, true, null),
-            new System.Data.OleDb.OleDbParameter("Original_password", System.Data.OleDb.OleDbType.VarWChar, 0, System.Data.ParameterDirection.Input, false, ((byte)(0)), ((byte)(0)), "password", System.Data.DataRowVersion.Original, null)});
-            // 
-            // oleDbDataAdapter1
-            // 
-            this.oleDbDataAdapter1.DeleteCommand = this.oleDbDeleteCommand1;
-            this.oleDbDataAdapter1.InsertCommand = this.oleDbInsertCommand1;
-            this.oleDbDataAdapter1.SelectCommand = this.oleDbSelectCommand1;
-            this.oleDbDataAdapter1.TableMappings.AddRange(new System.Data.Common.DataTableMapping[] {
-            new System.Data.Common.DataTableMapping("Table", "auth", new System.Data.Common.DataColumnMapping[] {
-                        new System.Data.Common.DataColumnMapping("ID", "ID"),
-                        new System.Data.Common.DataColumnMapping("username", "username"),
-                        new System.Data.Common.DataColumnMapping("password", "password")})});
-            this.oleDbDataAdapter1.UpdateCommand = this.oleDbUpdateCommand1;
-            // 
-            // authBindingSource
-            // 
-            this.authBindingSource.DataMember = "auth";
-            this.authBindingSource.DataSource = this.tabledbDataSet;
-            // 
-            // tabledbDataSet
-            // 
-            this.tabledbDataSet.DataSetName = "tabledbDataSet";
-            this.tabledbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // authTableAdapter
-            // 
-            this.authTableAdapter.ClearBeforeFill = true;
             // 
             // button1
             // 
@@ -257,12 +179,42 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(13, 406);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(959, 155);
+            this.richTextBox1.TabIndex = 11;
+            this.richTextBox1.Text = "";
+            // 
+            // oleDbSelectCommand1
+            // 
+            this.oleDbSelectCommand1.CommandText = "SELECT        teachers.*, pupils.*\r\nFROM            pupils, teachers";
+            this.oleDbSelectCommand1.Connection = this.oleDbConnection1;
+            // 
+            // oleDbDataAdapter1
+            // 
+            this.oleDbDataAdapter1.SelectCommand = this.oleDbSelectCommand1;
+            this.oleDbDataAdapter1.TableMappings.AddRange(new System.Data.Common.DataTableMapping[] {
+            new System.Data.Common.DataTableMapping("Table", "pupils", new System.Data.Common.DataColumnMapping[] {
+                        new System.Data.Common.DataColumnMapping("teachers.ID", "teachers.ID"),
+                        new System.Data.Common.DataColumnMapping("teachers.username", "teachers.username"),
+                        new System.Data.Common.DataColumnMapping("teachers.password", "teachers.password"),
+                        new System.Data.Common.DataColumnMapping("pupils.ID", "pupils.ID"),
+                        new System.Data.Common.DataColumnMapping("pupils.username", "pupils.username"),
+                        new System.Data.Common.DataColumnMapping("pupils.password", "pupils.password")})});
+            // 
+            // oleDbConnection1
+            // 
+            this.oleDbConnection1.ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\\tabledb.mdb";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(984, 411);
+            this.ClientSize = new System.Drawing.Size(984, 582);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
@@ -271,10 +223,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Электронный табель успеваемости";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.authBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tabledbDataSet)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -284,16 +234,6 @@
         }
 
         #endregion
-
-        private System.Data.OleDb.OleDbCommand oleDbSelectCommand1;
-        private System.Data.OleDb.OleDbCommand oleDbInsertCommand1;
-        private System.Data.OleDb.OleDbCommand oleDbUpdateCommand1;
-        private System.Data.OleDb.OleDbCommand oleDbDeleteCommand1;
-        private System.Data.OleDb.OleDbDataAdapter oleDbDataAdapter1;
-        private System.Data.OleDb.OleDbConnection oleDbConnection1;
-        private tabledbDataSet tabledbDataSet;
-        private System.Windows.Forms.BindingSource authBindingSource;
-        private tabledbDataSetTableAdapters.authTableAdapter authTableAdapter;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
@@ -307,6 +247,10 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Data.OleDb.OleDbCommand oleDbSelectCommand1;
+        private System.Data.OleDb.OleDbConnection oleDbConnection1;
+        private System.Data.OleDb.OleDbDataAdapter oleDbDataAdapter1;
     }
 }
 
