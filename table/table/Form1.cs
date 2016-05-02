@@ -78,7 +78,7 @@ namespace table
                 pups[0, i] = reader["username"].ToString();
                 pups[1, i] = reader["password"].ToString();
                 pups[2, i] = reader["pups_id"].ToString();
-                richTextBox1.Text += pups[0, i] + " : " + pups[1, i] + " - " + pups[2, i] + '\n';
+                //richTextBox1.Text += pups[0, i] + " : " + pups[1, i] + " - " + pups[2, i] + '\n';
                 ++i;
             }
             oleDbConnection1.Close();
@@ -94,7 +94,7 @@ namespace table
                 teachs[0, i] = reader2["username"].ToString();
                 teachs[1, i] = reader2["password"].ToString();
                 teachs[2, i] = reader2["teacher_id"].ToString();
-                richTextBox1.Text += teachs[0, i] + " : " + teachs[1, i] + " - " + teachs[2, i] + '\n';
+                //richTextBox1.Text += teachs[0, i] + " : " + teachs[1, i] + " - " + teachs[2, i] + '\n';
                 ++i;
             }
             oleDbConnection1.Close();
@@ -138,52 +138,7 @@ namespace table
                 label3.Text = "Incorrect username or password";
                 break;
             }
-
-            //while (true)
-            //{
-            //    while (i < pupilcount)
-            //    {
-            //        if (user == pun[i])
-            //        {
-            //            if (pass == pps[i])
-            //            {
-            //                groupBox1.Visible = false;
-            //                groupBox2.Visible = false;
-            //                dataGridView1.Visible = true;
-            //                textBox1.Text = "";
-            //                textBox2.Text = "";
-            //                button2.Text = "Деавторизация";
-            //                break;
-            //            }
-            //        }
-            //        i++;
-            //    }
-
-            //    while (j < teachercount)
-            //    {
-
-            //        if (user == tun[j])
-            //        {
-            //            if (pass == tps[j])
-            //            {
-            //                groupBox1.Visible = false;
-            //                dataGridView1.Visible = true;
-            //                textBox1.Text = "";
-            //                textBox2.Text = "";
-            //                button2.Text = "Деавторизация";
-            //                groupBox2.Visible = true;
-            //                break;
-            //            }
-            //        }
-            //        j++;
-            //    }
-               
-            //    label3.Text = "Incorrect username or password";
-            //    break;
-            //}
-            
-               
-
+                          
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)

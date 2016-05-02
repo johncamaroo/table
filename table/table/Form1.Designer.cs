@@ -44,7 +44,6 @@
             this.oleDbSelectCommand1 = new System.Data.OleDb.OleDbCommand();
             this.oleDbConnection1 = new System.Data.OleDb.OleDbConnection();
             this.oleDbDataAdapter1 = new System.Data.OleDb.OleDbDataAdapter();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -200,21 +199,12 @@
                         new System.Data.Common.DataColumnMapping("pupils.username", "pupils.username"),
                         new System.Data.Common.DataColumnMapping("pupils.password", "pupils.password")})});
             // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(12, 455);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(730, 96);
-            this.richTextBox1.TabIndex = 11;
-            this.richTextBox1.Text = "";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(984, 589);
-            this.Controls.Add(this.richTextBox1);
+            this.ClientSize = new System.Drawing.Size(984, 456);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
@@ -250,7 +240,6 @@
         private System.Data.OleDb.OleDbCommand oleDbSelectCommand1;
         private System.Data.OleDb.OleDbConnection oleDbConnection1;
         private System.Data.OleDb.OleDbDataAdapter oleDbDataAdapter1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
 
