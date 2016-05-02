@@ -13,6 +13,8 @@ namespace table
 {
     public partial class Form1 : Form
     {
+        Int16 whologin;
+        Int16 who=0;
         DialogResult res = new DialogResult();
         public Form1()
         {
@@ -39,32 +41,6 @@ namespace table
             oleDbConnection1.Open();
             teachercount = (int)command.ExecuteScalar();
             oleDbConnection1.Close();
-
-            /*command.CommandText = "SELECT * FROM pupils";
-           oleDbConnection1.Open();
-           OleDbDataReader reader = command.ExecuteReader();
-           string[] pun = new string[pupilcount + 1];
-           string[] pps = new string[pupilcount + 1];
-           while (reader.Read())
-           {
-               pun[i] = reader["username"].ToString();
-               pps[i] = reader["password"].ToString();
-               ++i;
-           }             
-           oleDbConnection1.Close();*/
-
-            //command.CommandText = "SELECT * FROM teachers";
-            //oleDbConnection1.Open();
-            //OleDbDataReader reader2 = command.ExecuteReader();
-            //string[] tun = new string[teachercount + 3];
-            //string[] tps = new string[teachercount + 3];
-            //while (reader2.Read())
-            //{
-            //    tun[i] = reader2["username"].ToString();
-            //    tps[i] = reader2["password"].ToString();
-            //    ++i;
-            //}
-            //oleDbConnection1.Close();
 
             string user = textBox1.Text;
             string pass = textBox2.Text;
@@ -112,6 +88,8 @@ namespace table
                             groupBox1.Visible = false;
                             groupBox2.Visible = false;
                             dataGridView1.Visible = true;
+                            who = 1;
+                            whologin = Convert.ToInt16(pups[2, i]);
                             textBox1.Text = "";
                             textBox2.Text = "";
                             button2.Text = "Деавторизация";
@@ -128,6 +106,8 @@ namespace table
                             groupBox1.Visible = false;
                             groupBox2.Visible = true;
                             dataGridView1.Visible = true;
+                            who = 2;
+                            whologin = Convert.ToInt16(teachs[2, i]);
                             textBox1.Text = "";
                             textBox2.Text = "";
                             button2.Text = "Деавторизация";
@@ -138,7 +118,16 @@ namespace table
                 label3.Text = "Incorrect username or password";
                 break;
             }
-                          
+                 
+            switch (who)
+            {
+                case 1:
+                    command.CommandText = "SELECT * FROM marks where pupil_id = " + whologin.ToString();
+                    break;
+                case 2:
+
+                    break;
+            }         
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
