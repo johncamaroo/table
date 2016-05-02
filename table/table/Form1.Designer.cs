@@ -39,11 +39,12 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.oleDbSelectCommand1 = new System.Data.OleDb.OleDbCommand();
-            this.oleDbDataAdapter1 = new System.Data.OleDb.OleDbDataAdapter();
             this.oleDbConnection1 = new System.Data.OleDb.OleDbConnection();
+            this.oleDbDataAdapter1 = new System.Data.OleDb.OleDbDataAdapter();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -158,16 +159,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Visible = false;
             // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(6, 19);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(212, 45);
-            this.button3.TabIndex = 0;
-            this.button3.Text = "Сохранить изменения";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(6, 70);
@@ -178,10 +169,24 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(6, 19);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(212, 45);
+            this.button3.TabIndex = 0;
+            this.button3.Text = "Сохранить изменения";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // oleDbSelectCommand1
             // 
             this.oleDbSelectCommand1.CommandText = "SELECT        teachers.*, pupils.*\r\nFROM            pupils, teachers";
             this.oleDbSelectCommand1.Connection = this.oleDbConnection1;
+            // 
+            // oleDbConnection1
+            // 
+            this.oleDbConnection1.ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\\tabledb.mdb";
             // 
             // oleDbDataAdapter1
             // 
@@ -195,16 +200,21 @@
                         new System.Data.Common.DataColumnMapping("pupils.username", "pupils.username"),
                         new System.Data.Common.DataColumnMapping("pupils.password", "pupils.password")})});
             // 
-            // oleDbConnection1
+            // richTextBox1
             // 
-            this.oleDbConnection1.ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\\tabledb.mdb";
+            this.richTextBox1.Location = new System.Drawing.Point(12, 455);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(730, 96);
+            this.richTextBox1.TabIndex = 11;
+            this.richTextBox1.Text = "";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(984, 461);
+            this.ClientSize = new System.Drawing.Size(984, 589);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
@@ -240,6 +250,7 @@
         private System.Data.OleDb.OleDbCommand oleDbSelectCommand1;
         private System.Data.OleDb.OleDbConnection oleDbConnection1;
         private System.Data.OleDb.OleDbDataAdapter oleDbDataAdapter1;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
 
