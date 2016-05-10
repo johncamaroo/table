@@ -13,9 +13,13 @@ namespace table
 {
     public partial class Form1 : Form
     {
-        Int16 whologin;
-        Int16 who=0;
-        DialogResult res = new DialogResult();
+        public OleDbCommand command;
+        public Int16 whologin;
+        public Int16 who=0;
+        public DialogResult res = new DialogResult();
+        public OleDbDataReader reader;
+
+
         public Form1()
         {
             InitializeComponent();
@@ -25,19 +29,19 @@ namespace table
         {
 
         }
-        
+
         private void button1_Click(object sender, EventArgs e)
         {
             int pupilcount, teachercount, i = 0;
-            OleDbCommand command = oleDbConnection1.CreateCommand();
+            command = oleDbConnection1.CreateCommand();
             command.CommandType = CommandType.Text;
 
-            command.CommandText = "SELECT COUNT(*) FROM pupils";
+            command.CommandText = "SELECT COUNT(*) FROM auth_pups";
             oleDbConnection1.Open();
             pupilcount = (int)command.ExecuteScalar();
             oleDbConnection1.Close();
 
-            command.CommandText = "SELECT COUNT(*) FROM teachers";
+            command.CommandText = "SELECT COUNT(*) FROM auth_teachs";
             oleDbConnection1.Open();
             teachercount = (int)command.ExecuteScalar();
             oleDbConnection1.Close();
@@ -46,14 +50,14 @@ namespace table
             string pass = textBox2.Text;
 
             command.CommandText = "SELECT * FROM auth_pups";
-            oleDbConnection1.Open();
-            OleDbDataReader reader = command.ExecuteReader();
             string[,] pups = new string[3, pupilcount + 1]; //объявление массива [3, кол-во учеников+1]
+            oleDbConnection1.Open();
+            reader = command.ExecuteReader();
             while (reader.Read())
             {
                 pups[0, i] = reader["username"].ToString();
                 pups[1, i] = reader["password"].ToString();
-                pups[2, i] = reader["pups_id"].ToString();
+                pups[2, i] = reader["ID"].ToString();
                 //richTextBox1.Text += pups[0, i] + " : " + pups[1, i] + " - " + pups[2, i] + '\n';
                 ++i;
             }
@@ -62,14 +66,14 @@ namespace table
             i = 0;
 
             command.CommandText = "SELECT * FROM auth_teachs";
-            oleDbConnection1.Open();
-            OleDbDataReader reader2 = command.ExecuteReader();
             string[,] teachs = new string[3, teachercount + 1]; //объявление массива [3, кол-во учителей+1]
-            while (reader2.Read())
+            oleDbConnection1.Open();
+            reader = command.ExecuteReader();
+            while (reader.Read())
             {
-                teachs[0, i] = reader2["username"].ToString();
-                teachs[1, i] = reader2["password"].ToString();
-                teachs[2, i] = reader2["teacher_id"].ToString();
+                teachs[0, i] = reader["username"].ToString();
+                teachs[1, i] = reader["password"].ToString();
+                teachs[2, i] = reader["ID"].ToString();
                 //richTextBox1.Text += teachs[0, i] + " : " + teachs[1, i] + " - " + teachs[2, i] + '\n';
                 ++i;
             }
@@ -122,11 +126,64 @@ namespace table
             switch (who)
             {
                 case 1:
-                    command.CommandText = "SELECT * FROM marks where pupil_id = " + whologin.ToString();
+                    this.marksTableAdapter.Fill(this.tabledbDataSet1.marks);
                     break;
                 case 2:
+                    {
+                        List<string> fid = new List<string>(); // form_id
+                        List<string> fn = new List<string>(); // pups_surname, pups_name
+                        int j = 0, mark = 0;
+                        string sid = teachs[2, i];
 
-                    break;
+                        command = oleDbConnection1.CreateCommand();
+                        command.CommandType = CommandType.Text;      
+
+                        command.CommandText = "SELECT form_id FROM [table] WHERE (subject_id =" + sid + ")";
+                        
+                        oleDbConnection1.Open();
+                        reader = command.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            fid.Add(reader["form_id"].ToString());
+                        }
+                        oleDbConnection1.Close();
+
+                        
+                        while (j < fid.Count())
+                        {
+                            oleDbConnection1.Open();
+                            command.CommandText = "SELECT forms.form_year, forms.form_letter, pupils.pups_surname, pupils.pups_name, pupils.pupils_id FROM (forms INNER JOIN pupils ON forms.ID = pupils.form_id) WHERE (forms.ID =" + fid[j] + ")";
+                            reader = command.ExecuteReader();
+                            while (reader.Read())
+                            {
+                                fn.Add(reader["form_year"].ToString());
+                                fn.Add(reader["form_letter"].ToString());
+                                fn.Add(reader["pups_surname"].ToString());
+                                fn.Add(reader["pups_name"].ToString());
+                                fn.Add(reader["pupils_id"].ToString());                                
+                            }                           
+                            j++;
+                            oleDbConnection1.Close();
+                        }
+
+                        j = 0;
+
+                        oleDbConnection1.Open();
+                        do
+                        {
+                            command.CommandText = "SELECT mark FROM [marks] WHERE (pupil_id =" + fn[j * 5 + 4] + ") AND (subject_id =" + sid + ")";
+                            richTextBox1.Text += fn.Count + " " + fn[j * 5 + 4] + " " + sid + '\n';
+                            if (command.ExecuteScalar() == null)
+                            {
+                                mark = 0;
+                            }
+                            else mark = (int)command.ExecuteScalar();
+                            dataGridView1.Rows.Add(fn[j * 5], fn[j * 5 + 1], fn[j * 5 + 2], fn[j * 5 + 3], mark);
+                            j++;
+                        } while (j < fn.Count() /5 );
+                        oleDbConnection1.Close();
+                        break;
+                    }
             }         
         }
 

@@ -85,6 +85,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>tabledbDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="tabledbDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>tabledbDataSet1.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -121,14 +126,20 @@
     <None Include="tabledbDataSet.xss">
       <DependentUpon>tabledbDataSet.xsd</DependentUpon>
     </None>
+    <None Include="tabledbDataSet1.xsc">
+      <DependentUpon>tabledbDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="tabledbDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>tabledbDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="tabledbDataSet1.xss">
+      <DependentUpon>tabledbDataSet1.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="tabledb.mdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">

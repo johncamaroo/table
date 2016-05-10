@@ -19,6 +19,4 @@ C:\Users\loli\Documents\table\table\table\obj\Debug\table.Form1.resources
 C:\Users\loli\Documents\table\table\table\obj\Debug\table.Form2.resources
 C:\Users\loli\Documents\table\table\table\obj\Debug\table.Properties.Resources.resources
 C:\Users\loli\Documents\table\table\table\obj\Debug\table.csproj.GenerateResource.Cache
-C:\Users\loli\Documents\table\table\table\bin\Debug\Database1.mdf
-C:\Users\loli\Documents\table\table\table\bin\Debug\Database1_log.ldf
 C:\Users\loli\Documents\table\table\table\obj\Debug\table.csprojResolveAssemblyReference.cache
